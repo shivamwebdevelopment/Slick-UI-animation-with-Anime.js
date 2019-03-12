@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header id="showcase">
+      <h1 id="header">
+        Design for Grid
+        <hr />
+      </h1>
+      <p id="content">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim
+        accusamus, aperiam saepe aspernatur sunt quo.
+      </p>
+      <button id="btn" class="btn">Read More</button>
+      <section id="bg-img">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </section>
+    </header>
+    <!-- Section: -->
+    <div id="info">
+      <div class="container">
+        <h3>Info Sector</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
+          ducimus fuga blanditiis doloribus ad quia dicta qui minus ipsam
+          officiis, asperiores minima enim sunt recusandae adipisci? Vero
+          sapiente adipisci ex libero pariatur quos architecto molestias culpa
+          aspernatur aut inventore deleniti quibusdam veniam, nostrum
+          recusandae, maxime, possimus nobis labore officiis incidunt!
+        </p>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
+
+    <!-- <script>
+      // Variables elements
+      let grids = document.querySelectorAll("div");
+      let heading = document.getElementById("header");
+      let button = document.getElementById("btn");
+      let content = document.getElementById("content");
+      let num = 0;
+
+      const delay = time => new Promise(resolve => setTimeout(resolve, time));
+      grids.forEach(grid => {
+        delay(0).then(() => {
+          setTimeout(() => {
+            grid.style.backgroundColor = "lightblue";
+          }, (num += 100));
+        });
+        delay(500).then(() => {
+          setTimeout(() => {
+            grid.style.backgroundColor = "rgb(228,242,255)";
+            grid.style.width = "90%";
+          }, (num += 100));
+        });
+        delay(1000).then(() => {
+          setTimeout(() => {
+            heading.style.opacity = "1";
+          }, (num -= 1600));
+        });
+        delay(1000).then(() => {
+          setTimeout(() => {
+            button.style.opacity = "1";
+          }, (num -= 1600));
+        });
+        delay(1200).then(() => {
+          setTimeout(() => {
+            content.style.opacity = "1";
+          }, (num -= 1600));
+        });
+      });
+    </script> -->
+
+    <script>
+      let tl = anime.timeline({
+        easing: "easeOutExpo",
+        duration: 750
+      });
+      tl.add({
+        targets: "section div",
+        backgroundColor: "rgb(197,197,255,0.5)",
+        width: "100%",
+        delay: anime.stagger(100)
+      });
+      tl.add({
+        targets: "section div",
+        backgroundColor: "rgb(235,235,255,0.5)",
+        width: "90%"
+      });
+      tl.add(
+        {
+          targets: "#header",
+          top: "30%",
+          opacity: 1,
+          duration: 2000
+        },
+        "-=1600"
+      );
+      tl.add(
+        {
+          targets: "#content",
+          left: "12%",
+          opacity: 1,
+          duration: 1000
+        },
+        "-=1600"
+      );
+      tl.add(
+        {
+          targets: "#btn",
+          opacity: 1,
+          duration: 1000
+        },
+        "-=1000"
+      );
+      let rotateBar = anime({
+        targets: "section",
+        scaleY: "2",
+        scaleX: "2",
+        translateX: "40%",
+        rotate: "45deg",
+        duration: 5000,
+        autoplay: false
+      });
+
+      document.querySelector("#btn").addEventListener("mouseover", () => {
+        rotateBar.play();
+      });
+    </script>
+  </body>
+</html>
